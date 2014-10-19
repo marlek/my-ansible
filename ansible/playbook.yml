@@ -5,9 +5,12 @@
     web_server: apachephp
     servername: default.dev www.default.dev
     timezone: UTC
+    user: vagrant
+    homedir: /home/vagrant
   vars_files:
     - vars/mysql.yml
     - vars/common.yml
+    - vars/node.yml
     - [ "vars/apachephp.yml", "vars/ws_defaults.yml" ]
   roles:
     - init
@@ -18,3 +21,4 @@
     - composer
     - phpcommon
     - app
+    - node
