@@ -1,0 +1,4 @@
+database:
+    db: default
+    user: vagrant
+    pass: vagrant
