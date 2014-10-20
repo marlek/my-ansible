@@ -4,3 +4,11 @@
 
 - name: "Load dotfiles during login"
   lineinfile: dest="{{ homedir }}/.profile" line="source {{ homedir }}/.bash_custom" state="present" insertafter="EOF"
+
+- name: "Remove /var/www"
+  sudo: yes
+  file: path=/var/www state=absent force=yes
+
+- name: "Link /var/www to /vagrant/www"
+  sudo: yes
+  file: src=/vagrant/www dest=/var/www state=link force=yes
