@@ -1,0 +1,6 @@
+- name: "Fetching dotfiles"
+  shell: curl -L https://raw.github.com/marlek/dotfiles/master/bash/.bash_custom > {{ homedir }}/.bash_custom
+         executable="/bin/bash"
+
+- name: "Load dotfiles during login"
+  lineinfile: dest="{{ homedir }}/.profile" line="source {{ homedir }}/.bash_custom" state="present" insertafter="EOF"
