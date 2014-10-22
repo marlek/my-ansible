@@ -31,7 +31,7 @@ rewrite, vhost_alias, headers, expires, filter
 
 Version: 5.4
 
-Modules: php5-cli, php5-curl, php5-imagick, php5-mcrypt, php5-memcached, php5-sqlite, php5-xdebug
+Modules: php5-cli, php5-curl, php5-imagick, php5-mcrypt, php5-mysql, php5-memcached, php5-sqlite, php5-xdebug
 
 Tools: composer
 
