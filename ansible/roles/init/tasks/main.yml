@@ -11,9 +11,14 @@
     - wget
     - python-software-properties
 
-- name: Add ppa Repository
+- name: Add ppa Repository for PHP
   sudo: yes
   apt_repository: repo=ppa:ondrej/{{ php_ppa }}
+
+- name: Add ppa Repository for MySQL 5.6 if needed
+  sudo: yes
+  apt_repository: repo=ppa:ondrej/mysql-5.6
+  when: mysql_56
 
 - name: Update apt
   sudo: yes
