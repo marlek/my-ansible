@@ -7,12 +7,6 @@
     - mysql-client
     - python-mysqldb
 
-- name: mysql | Create databases
+- name: mysql | Update root user password
   sudo: yes
-  mysql_db: name={{ database.db }} state=present
-  with_items: mysql
-
-- name: mysql | Create users
-  sudo: yes
-  mysql_user: name={{ database.user }} password={{ database.pass }} priv={{ database.db }}.*:ALL state=present
-  with_items: mysql
+  mysql_user: name=root password=root
