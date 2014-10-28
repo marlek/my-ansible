@@ -1,6 +1,6 @@
 ---
     php_ppa: php5-oldstable
-    mysql_56: true
+    mysql_56: false
     doc_root: /var/www
     sys_packages: ["vim","git","imagemagick","htop"]
     dist: precise
