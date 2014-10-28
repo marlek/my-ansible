@@ -10,8 +10,15 @@ It also includes my dotfiles and is adapted to my directory structure, so be sur
 `~/Projects folder is linked as /vagrant on VM`
 `~/Projects/www folder is linked as /var/www on VM`
 
-This allows me to have different Virtual Machines which will share the same www folder so I can test applications on different verions of software.
+This allows me to have different Virtual Machines which will share the same www folder so I can test applications on different versions of software.
 
+# Prerequisites
+
+[VirtualBox](https://www.virtualbox.org)
+
+[Vagrant](https://www.vagrantup.com)
+
+[Ansible](http://www.ansible.com) (Easiest to install via `homebrew` or something similar)
 
 # Installed software
 
