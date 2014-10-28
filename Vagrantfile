@@ -46,15 +46,15 @@ Vagrant.configure("2") do |config|
     #############################################################
 
 
-    # if which('ansible-playbook')
-    #     config.vm.provision "ansible" do |ansible|
-    #         ansible.playbook = "ansible/playbook.yml"
-    #         ansible.inventory_path = "ansible/inventories/dev"
-    #         ansible.limit = 'all'
-    #     end
-    # else
-    #     config.vm.provision :shell, path: "ansible/windows.sh"
-    # end
+    if which('ansible-playbook')
+        config.vm.provision "ansible" do |ansible|
+            ansible.playbook = "ansible/playbook.yml"
+            ansible.inventory_path = "ansible/inventories/dev"
+            ansible.limit = 'all'
+        end
+    else
+        config.vm.provision :shell, path: "ansible/windows.sh"
+    end
 
 
     config.vm.synced_folder "~/Projects", "/vagrant", type: "nfs"
