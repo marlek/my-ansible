@@ -5,6 +5,7 @@
 provider_name = "My Ansible"
 server_ip     = "192.168.99.20"
 server_memory = "512" # MB
+hostname      = "development.local"
 
 # Check to determine whether we're on a windows or linux/os-x host,
 # later on we use this to launch ansible in the supported way
@@ -30,6 +31,8 @@ Vagrant.configure("2") do |config|
 
     config.vm.box_url = "https://vagrantcloud.com/hashicorp/precise64/version/2/provider/virtualbox.box"
 
+    config.vm.hostname = hostname
+
     config.vm.network :private_network, ip: server_ip
     config.ssh.forward_agent = true
 
@@ -43,15 +46,15 @@ Vagrant.configure("2") do |config|
     #############################################################
 
 
-    if which('ansible-playbook')
-        config.vm.provision "ansible" do |ansible|
-            ansible.playbook = "ansible/playbook.yml"
-            ansible.inventory_path = "ansible/inventories/dev"
-            ansible.limit = 'all'
-        end
-    else
-        config.vm.provision :shell, path: "ansible/windows.sh"
-    end
+    # if which('ansible-playbook')
+    #     config.vm.provision "ansible" do |ansible|
+    #         ansible.playbook = "ansible/playbook.yml"
+    #         ansible.inventory_path = "ansible/inventories/dev"
+    #         ansible.limit = 'all'
+    #     end
+    # else
+    #     config.vm.provision :shell, path: "ansible/windows.sh"
+    # end
 
 
     config.vm.synced_folder "~/Projects", "/vagrant", type: "nfs"
