@@ -15,9 +15,11 @@ This allows me to have different Virtual Machines which will share the same www 
 
 # Installed software
 
+**Ubuntu 12.04 (Precise Pangolin)** (I don't use latest Ubuntu because of PHP 5.4)
+
 **Services:**
 
-Apache, MySQL, Memcached
+Apache, MySQL (5.5), Memcached
 
 **System packages:**
 
@@ -41,7 +43,23 @@ Version: 0.10.*
 
 Packages: grunt-cli, gulp, yo, bower
 
+# Installing different versions of software
+
+**PHP**
+
+In order to install different version of PHP you need to change `php_ppa` variable in `ansible/vars/common.yml` file:
+
+For PHP **5.4**: `php5-oldstable`
+
+For PHP **5.5**: `php5`
+
+For PHP **5.6**: `php5-5.6`
+
+**MySQL**
+
+In order to install MySQL 5.6 instead of default 5.5 change `mysql_56` variable in `ansible/vars/common.yml` file:
+
+`mysql_56: true`
 
 # TODO
 - Add project generators
-- Improve README to explain how to use different verions of software
