@@ -17,6 +17,7 @@
     - apache
     - php5
     - mysql
+    - memcached
     - composer
     - phpcommon
     - app
