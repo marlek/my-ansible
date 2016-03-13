@@ -1,0 +1,40 @@
+---
+server:
+    install: '1'
+    packages: [vim, git, htop, imagemagick]
+    timezone: UTC
+    locale: en_US.UTF-8
+apache:
+    install: '1'
+    docroot: /var/www
+    servername: www.default.dev
+mysql:
+    install: '1'
+    root_password: 'root'
+php:
+    install: '1'
+    ppa: php
+    packages: [
+        php5.6-cli,
+        php5.6-common,
+        php5.6-curl,
+        php5.6-dev,
+        php5.6-gd,
+        php5.6-imap,
+        php5.6-intl,
+        php5.6-json,
+        php5.6-mcrypt,
+        php5.6-mysql,
+        php5.6-opcache,
+        php5.6-pgsql,
+        php5.6-readline,
+        php5.6-sqlite3,
+        libapache2-mod-php5.6
+    ]
+xdebug:
+    install: '1'
+composer:
+    install: '1'
+node:
+    node_version: '4.4'
+    global_packages: ['grunt-cli', 'gulp', 'yo', 'bower']

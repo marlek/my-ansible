@@ -1,2 +1,3 @@
 .vagrant
 /php7/ansible/inventories/dev
+/php56/ansible/inventories/dev
