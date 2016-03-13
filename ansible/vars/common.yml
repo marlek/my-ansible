@@ -1,7 +1,0 @@
----
-    php_ppa: php5-oldstable
-    mysql_56: false
-    doc_root: /var/www
-    sys_packages: ["vim","git","imagemagick","htop"]
-    dist: precise
-    php_packages: ["php5-cli","php5-curl","php5-imagick","php5-mcrypt","php5-mysql","php5-memcached","php5-sqlite","php5-xdebug"]
