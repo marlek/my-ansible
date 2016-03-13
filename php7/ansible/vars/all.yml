@@ -1,0 +1,40 @@
+---
+server:
+    install: '1'
+    packages: [vim, git, htop, imagemagick]
+    timezone: UTC
+    locale: en_US.UTF-8
+apache:
+    install: '1'
+    docroot: /var/www
+    servername: www.default.dev
+mysql:
+    install: '1'
+    root_password: 'root'
+php:
+    install: '1'
+    ppa: php
+    packages: [
+        php7.0-cli,
+        php7.0-common,
+        php7.0-curl,
+        php7.0-dev,
+        php7.0-gd,
+        php7.0-imap,
+        php7.0-intl,
+        php7.0-json,
+        php7.0-mcrypt,
+        php7.0-mysql,
+        php7.0-opcache,
+        php7.0-pgsql,
+        php7.0-readline,
+        php7.0-sqlite3,
+        libapache2-mod-php7.0
+    ]
+xdebug:
+    install: '1'
+composer:
+    install: '1'
+node:
+    node_version: '4.4'
+    global_packages: ['grunt-cli', 'gulp', 'yo', 'bower']

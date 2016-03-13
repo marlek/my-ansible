@@ -1,0 +1,12 @@
+---
+- stat: path=/etc/php/7.0/apache2/php.ini
+  register: modphp
+
+- stat: path=/etc/php/7.0/cli/php.ini
+  register: phpcli
+
+- include: php-cli.yml
+  when: phpcli.stat.exists
+
+- include: mod-php.yml
+  when: modphp.stat.exists
