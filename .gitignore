@@ -1,1 +1,2 @@
-/.vagrant
+.vagrant
+/php7/ansible/inventories/dev
