@@ -27,11 +27,11 @@ cd ~/Projects
 ```
 2) Clone the repository inside that directory:
 ```
-git clone https://github.com/marlek/my-ansible.git ./
+git clone https://github.com/marlek/my-ansible.git Vagrant
 ```
-3) Go into each (or only desired) Ansible configuration and provision the VM. For example:
+3) You'll now end up with `~/Projects/Vagrant` directory. Go into each (or only desired) Ansible configurations and provision the VM. For example:
 ```
-cd php7
+cd Vagrant/php7
 vagrant up
 ```
 
