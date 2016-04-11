@@ -30,6 +30,8 @@ php:
         php5.6-readline,
         php5.6-sqlite3,
         php-imagick,
+        php-zip,
+        php-mbstring,
         libapache2-mod-php5.6
     ]
 xdebug:

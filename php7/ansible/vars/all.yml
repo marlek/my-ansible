@@ -30,6 +30,8 @@ php:
         php7.0-readline,
         php7.0-sqlite3,
         php-imagick,
+        php-zip,
+        php-mbstring,
         libapache2-mod-php7.0
     ]
 xdebug:
