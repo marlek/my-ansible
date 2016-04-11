@@ -2,6 +2,7 @@
 - name: "Fetching dotfiles"
   shell: curl -L https://raw.github.com/marlek/dotfiles/master/bash/.bash_custom > /home/vagrant/.bash_custom
          executable="/bin/bash"
+  sudo: no
 
 - name: "Load dotfiles during login"
   lineinfile: dest="/home/vagrant/.profile" line="source /home/vagrant/.bash_custom" state="present" insertafter="EOF"
