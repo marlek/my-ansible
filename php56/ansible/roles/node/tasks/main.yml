@@ -1,17 +1,17 @@
 ---
 - name: "Checkout nvm repository"
   git: repo="https://github.com/creationix/nvm.git" dest="/home/vagrant/.nvm" accept_hostkey="yes" update="yes"
-  sudo: yes
+  sudo: no
 
 - name: "Installing nodejs"
   shell: source /home/vagrant/.nvm/nvm.sh && nvm install {{ node.node_version }}
          executable="/bin/bash"
-  sudo: yes
+  sudo: no
 
 - name: "Activating default version"
   shell: source /home/vagrant/.nvm/nvm.sh && nvm alias default {{ node.node_version }}
          executable="/bin/bash"
-  sudo: yes
+  sudo: no
 
 - name: "Ensure nvm is loaded during login"
   lineinfile: dest="/home/vagrant/.profile" line="source /home/vagrant/.nvm/nvm.sh" state="present" insertafter="EOF"
@@ -20,4 +20,4 @@
   shell: source /home/vagrant/.nvm/nvm.sh && nvm use {{ node.node_version }} && npm install -g '{{ item }}'
          executable="/bin/bash"
   with_items: node.global_packages
-  sudo: yes
+  sudo: no
