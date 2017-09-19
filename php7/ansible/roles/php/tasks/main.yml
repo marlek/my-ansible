@@ -1,10 +1,8 @@
 ---
 - name: Install php
-  sudo: yes
   apt: pkg=php7.0 state=latest
 
 - name: Install PHP Packages
-  sudo: yes
   apt: pkg={{ item }} state=latest
   with_items: "{{php.packages}}"
   when: php.packages is defined

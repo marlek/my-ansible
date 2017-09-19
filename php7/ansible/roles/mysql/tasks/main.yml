@@ -4,7 +4,6 @@
   register: current_hostname
 
 - name: mysql | Install MySQL Packages
-  sudo: yes
   apt: pkg={{ item }} state=latest
   with_items:
     - mysql-server-5.6
