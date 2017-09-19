@@ -1,7 +1,8 @@
 ---
 - name: "Fetching dotfiles"
-  shell: curl -L https://raw.github.com/marlek/dotfiles/master/bash/.bash_custom > /home/vagrant/.bash_custom
-         executable="/bin/bash"
+  get_url:
+    url: https://raw.github.com/marlek/dotfiles/master/bash/.bash_custom
+    dest: /home/vagrant/.bash_custom
   become: false
 
 - name: "Load dotfiles during login"
