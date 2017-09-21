@@ -19,5 +19,5 @@
 - name: "Installing global npm packages"
   shell: source /home/vagrant/.nvm/nvm.sh && nvm use {{ node.node_version }} && npm install -g '{{ item }}'
          executable="/bin/bash"
-  with_items: node.global_packages
+  with_items: "{{node.global_packages}}"
   sudo: no
