@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+  vars_files:
+    - vars/server.yml
+    - vars/apache.yml
+    - vars/mysql.yml
+    - vars/php.yml
+    - vars/redis.yml
+    - vars/node.yml
+  roles:
+    - server
+    - supervisor
+    - mysql
+    - apache
+    - php
+    - memcached
+    - redis
+    - node
+    - app

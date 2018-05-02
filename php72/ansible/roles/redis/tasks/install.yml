@@ -1,0 +1,53 @@
+- name: Compile Redis
+  command: make
+  args:
+    chdir: "/tmp/redis-{{ redis.version }}"
+
+- name: Install Redis
+  command: make install
+  args:
+    chdir: "/tmp/redis-{{ redis.version }}"
+
+- name: Create /etc/redis directory
+  file:
+    path: /etc/redis
+    state: directory
+
+- name: Copy configuration
+  command: "cp /tmp/redis-{{ redis.version }}/redis.conf /etc/redis/redis.conf"
+
+- name: Update Redis supervised configuration
+  lineinfile:
+    dest: /etc/redis/redis.conf
+    regexp: '^supervised no$'
+    line: 'supervised systemd'
+    backrefs: yes
+
+- name: Update Redis dir configuration
+  lineinfile:
+    dest: /etc/redis/redis.conf
+    regexp: '^dir ./$'
+    line: 'dir /var/lib/redis'
+    backrefs: yes
+
+- name: Create a Redis systemd unit file
+  template:
+    src: redis.service.tpl
+    dest: /etc/systemd/system/redis.service
+
+- name: Create redis group
+  group: name=redis state=present system=yes
+
+- name: Create redis user
+  user: name=redis group=redis createhome=no shell=/bin/false system=yes state=present
+
+- name: Create /var/lib/redis directory
+  file:
+    path: /var/lib/redis
+    state: directory
+    owner: redis
+    mode: 0755
+
+- name: Start Redis automatically
+  command: systemctl enable redis
+  notify: restart redis

@@ -1,0 +1,23 @@
+---
+- name: "Checkout nvm repository"
+  git: repo="https://github.com/creationix/nvm.git" dest="~/.nvm" accept_hostkey="yes" update="yes"
+  become: false
+
+- name: "Installing nodejs"
+  shell: source ~/.nvm/nvm.sh && nvm install {{ node.node_version }}
+         executable="/bin/bash"
+  become: false
+
+- name: "Activating default version"
+  shell: source ~/.nvm/nvm.sh && nvm alias default {{ node.node_version }}
+         executable="/bin/bash"
+  become: false
+
+- name: "Ensure nvm is loaded during login"
+  lineinfile: dest="~/.profile" line="source ~/.nvm/nvm.sh" state="present"
+
+- name: "Installing global npm packages"
+  shell: source ~/.nvm/nvm.sh && nvm use {{ node.node_version }} && npm install -g '{{ item }}'
+         executable="/bin/bash"
+  with_items: "{{node.global_packages}}"
+  become: false

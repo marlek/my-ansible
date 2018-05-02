@@ -1,0 +1,43 @@
+---
+
+#- name: php | Add ondrej's PPA key
+#  command: "wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg"
+
+- name: php | Download ondrej's PPA key
+  get_url:
+    url: https://packages.sury.org/php/apt.gpg
+    dest: /etc/apt/trusted.gpg.d/php.gpg
+
+- name: php | Create '/etc/apt/sources.list.d/php.list' file
+  copy:
+    content: 'deb https://packages.sury.org/php/ jessie main'
+    dest: /etc/apt/sources.list.d/php.list
+    owner: root
+    mode: 0555
+
+
+#- name: php | Add ppa repository for PHP
+#  lineinfile:
+#    dest:
+#    line: ""
+#    state: present
+
+- name: Update apt
+  apt: update_cache=yes
+
+#- name: Add ppa Repository for PHP
+#  apt_repository: repo={{ php.ppa }}
+
+- name: Install php
+  apt: pkg=php{{ php.version }} state=latest
+
+- name: Install PHP Packages
+  apt: pkg={{ item }} state=latest
+  with_items: "{{php.packages}}"
+  when: php.packages is defined
+
+- include: configure.yml
+
+- include: xdebug.yml
+
+- include: composer.yml

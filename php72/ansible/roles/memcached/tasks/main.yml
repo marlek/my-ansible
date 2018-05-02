@@ -1,0 +1,7 @@
+---
+- name: Install memcached
+  apt: pkg=memcached state=latest
+
+- name: Install PHP memcached
+  apt: pkg=php-memcached state=latest
+  notify: restart apache
