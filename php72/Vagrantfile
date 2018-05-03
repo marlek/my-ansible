@@ -24,6 +24,13 @@ def which(cmd)
     return nil
 end
 
+# Programatically create ansible/inventories/dev file,
+# to avoid changing IP manually for new VMs on the same computer
+File.open('ansible/inventories/dev' ,'w') do |f|
+  f.write "[default]\n"
+  f.write server_ip
+end
+
 Vagrant.configure("2") do |config|
 
     config.vm.provider :virtualbox do |v|
