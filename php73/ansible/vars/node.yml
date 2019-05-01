@@ -1,0 +1,4 @@
+---
+node:
+    version: '10'
+    global_packages: ['grunt-cli', 'gulp', 'yo']

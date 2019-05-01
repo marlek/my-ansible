@@ -1,0 +1,23 @@
+- name: Download Composer
+  get_url:
+    url: https://getcomposer.org/installer
+    dest: /tmp/composer-installer.php
+    mode: 0440
+
+- name: Install Composer
+  shell: "{{ item }}"
+  with_items:
+    - php /tmp/composer-installer.php --install-dir=/tmp
+    - mv /tmp/composer.phar /usr/local/bin/composer
+
+- name: "Remove installer"
+  file: path=/tmp/composer-installer.php state=absent force=yes
+
+- name: Install global Composer packages
+  become: false
+  shell: composer global require "{{ item }}"
+  with_items: "{{composer.global_packages}}"
+  when: composer.packages is defined
+
+- name: Include Composer bin directory in PATH
+  lineinfile: dest="~/.profile" line="PATH=~/.config/composer/vendor/bin:$PATH" state="present" insertafter="EOF"

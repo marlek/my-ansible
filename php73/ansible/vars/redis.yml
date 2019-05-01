@@ -1,0 +1,4 @@
+---
+redis:
+    version: '3.2.11'
+    release_url: 'http://download.redis.io/releases/redis-3.2.11.tar.gz'

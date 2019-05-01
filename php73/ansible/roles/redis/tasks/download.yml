@@ -1,0 +1,9 @@
+- name: Download Redis
+  get_url:
+    url: "{{ redis.release_url }}"
+    dest: /tmp/redis.tar.gz
+
+- name: Extract Redis
+  command: tar xzf /tmp/redis.tar.gz -C /tmp
+  args:
+    warn: false

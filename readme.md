@@ -33,7 +33,7 @@ git clone https://github.com/marlek/my-ansible.git Vagrant
 ```
 3) You'll now end up with `~/Projects/Vagrant` directory. Go into each (or only desired) Ansible configurations and provision the VM. For example:
 ```
-cd Vagrant/php7
+cd Vagrant/php73
 vagrant up
 ```
 
@@ -46,3 +46,5 @@ Default IPs:
 **PHP 7**: 192.168.99.20
 
 **PHP 7.2**: 192.168.99.40
+
+**PHP 7.3**: 192.168.99.50
