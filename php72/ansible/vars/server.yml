@@ -11,7 +11,8 @@ server:
     wget,
     python-software-properties,
     ca-certificates,
-    apt-transport-https
+    apt-transport-https,
+    unzip
   ]
   timezone: UTC
   locale: en_US.UTF-8
