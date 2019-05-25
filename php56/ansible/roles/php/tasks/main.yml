@@ -4,9 +4,9 @@
   apt: pkg=php5.6 state=latest
 
 - name: Install PHP Packages
-  sudo: yes
-  apt: pkg={{ item }} state=latest
-  with_items: "{{php.packages}}"
+  apt:
+    pkg: "{{php.packages}}"
+    state: latest
   when: php.packages is defined
 
 - include: configure.yml

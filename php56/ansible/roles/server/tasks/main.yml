@@ -2,23 +2,15 @@
 - name: Add ppa Repository
   sudo: yes
   apt_repository: repo=ppa:ondrej/{{ php.ppa }}
-  
+
 - name: Update apt
   sudo: yes
   apt: update_cache=yes
 
-- name: Install System Packages
-  sudo: yes
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - curl
-    - wget
-    - python-software-properties
-
 - name: Install Extra Packages
-  sudo: yes
-  apt: pkg={{ item }} state=latest
-  with_items: "{{server.packages}}"
+  apt:
+    pkg: "{{server.packages}}"
+    state: latest
   when: server.packages is defined
 
 - name: Configure the timezone

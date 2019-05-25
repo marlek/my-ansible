@@ -1,6 +1,6 @@
 ---
 server:
-    packages: [vim, git, htop, imagemagick]
+    packages: [vim, git, htop, imagemagick, curl, wget, python-software-properties]
     timezone: UTC
     locale: en_US.UTF-8
 apache:
@@ -33,5 +33,5 @@ php:
         libapache2-mod-php5.6
     ]
 node:
-    node_version: '4.4'
+    node_version: '10'
     global_packages: ['grunt-cli', 'gulp', 'yo', 'bower']
