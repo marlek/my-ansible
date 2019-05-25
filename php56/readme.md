@@ -6,7 +6,7 @@ Check out readme.md in the root of the repository for prerequisites and installa
 
 ## Installed software
 
-**Ubuntu 14.04 (Trusty Tahr)**
+**Ubuntu 16.04 (Xenial Xerus)**
 
 ### Services
 Apache 2.4, MySQL 5.6, Memcached
@@ -38,6 +38,6 @@ curl, wget, python-software-properties, vim, git, htop, imagemagick
 
 ### Node
 
-**Version**: 4.4
+**Version**: 10
 
 **Packages**: grunt-cli, gulp, yo, bower
