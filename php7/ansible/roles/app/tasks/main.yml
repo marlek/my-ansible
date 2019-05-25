@@ -6,10 +6,20 @@
   become: false
 
 - name: "Load dotfiles during login"
-  lineinfile: dest="/home/vagrant/.profile" line="source /home/vagrant/.bash_custom" state="present" insertafter="EOF"
+  lineinfile:
+    dest: /home/vagrant/.profile
+    line: source ~/.bash_custom
+    state: present
 
 - name: "Remove /var/www"
-  file: path=/var/www state=absent force=yes
+  file:
+    path: /var/www
+    state: absent
+    force: yes
 
 - name: "Link /var/www to /vagrant/www"
-  file: src=/vagrant/www dest=/var/www state=link force=yes
+  file:
+    src: /vagrant/www
+    dest: /var/www
+    state: link
+    force: yes
