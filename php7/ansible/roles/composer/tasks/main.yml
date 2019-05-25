@@ -9,7 +9,11 @@
   with_items:
     - php /tmp/composer-installer.php --install-dir=/tmp
     - mv /tmp/composer.phar /usr/local/bin/composer
-    - rm /tmp/composer-installer.php
+
+- name: "Remove installer"
+  file:
+    path: /tmp/composer-installer.php
+    state: absent
 
 - name: Install global Composer packages
   become: false

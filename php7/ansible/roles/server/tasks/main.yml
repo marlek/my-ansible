@@ -6,16 +6,10 @@
 - name: Update apt
   apt: update_cache=yes
 
-- name: Install System Packages
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - curl
-    - wget
-    - python-software-properties
-
 - name: Install Extra Packages
-  apt: pkg={{ item }} state=latest
-  with_items: "{{server.packages}}"
+  apt:
+    pkg: "{{server.packages}}"
+    state: latest
   when: server.packages is defined
 
 - name: Configure the timezone
