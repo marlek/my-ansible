@@ -38,6 +38,6 @@ curl, wget, python-software-properties, vim, git, htop, imagemagick
 
 ### Node
 
-**Version**: 4.4
+**Version**: 10
 
 **Packages**: grunt-cli, gulp, yo, bower
