@@ -3,6 +3,8 @@
 - shell: hostname
   register: current_hostname
 
+- name: Add ppa Repository for MySQL
+  apt_repository: repo=ppa:ondrej/mysql-{{ mysql.version }}
 - name: mysql | Install MySQL Packages
   apt: pkg={{ item }} state=latest
   with_items:

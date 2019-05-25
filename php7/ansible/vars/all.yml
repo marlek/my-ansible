@@ -1,12 +1,13 @@
 ---
 server:
-    packages: [vim, git, htop, imagemagick]
+    packages: [vim, git, htop, imagemagick, curl, wget, python-software-properties]
     timezone: UTC
     locale: en_US.UTF-8
 apache:
     docroot: /var/www
     servername: www.default.dev
 mysql:
+    version: '5.6'
     root_password: 'root'
 php:
     ppa: php
