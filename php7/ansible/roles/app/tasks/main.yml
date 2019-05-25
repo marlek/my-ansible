@@ -23,3 +23,11 @@
     dest: /var/www
     state: link
     force: yes
+
+- name: "Update motd"
+  template:
+    src: motd.tpl
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0644

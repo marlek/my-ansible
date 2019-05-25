@@ -7,7 +7,9 @@
 !php72
 !php72/**
 !php7
+!php7/**
 !php56
+!php56/**
 
 /php73/.DS_Store
 /php73/.vagrant
