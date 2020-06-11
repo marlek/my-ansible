@@ -1,6 +1,5 @@
 ---
 - name: Install Xdebug
-  sudo: yes
   apt: pkg=php-xdebug state=latest
 
 - name: Configure Xdebug in apache2 php.ini (1/7)

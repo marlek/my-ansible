@@ -1,6 +1,5 @@
 ---
 - name: Install php
-  sudo: yes
   apt: pkg=php5.6 state=latest
 
 - name: Install PHP Packages
