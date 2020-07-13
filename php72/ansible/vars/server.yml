@@ -9,7 +9,6 @@ server:
     build-essential,
     curl,
     wget,
-    python-software-properties,
     ca-certificates,
     apt-transport-https,
     unzip

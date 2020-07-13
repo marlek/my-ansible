@@ -6,7 +6,7 @@ provider_name = "PHP 73"
 server_ip     = "192.168.99.50"
 server_memory = "2048" # MB
 hostname      = "development.local"
-box           = "debian/jessie64"
+box           = "debian/stretch64"
 
 Vagrant.require_version ">= 2.0.0"
 

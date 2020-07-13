@@ -7,7 +7,7 @@ Check out readme.md in the root of the repository for prerequisites and installa
 **Debian 8 (Jessie)**
 
 ### Services
-Apache 2.4, MariaDB 10.0, Redis 3.2, Memcached, Supervisor
+Apache 2.4, MySQL 5.7, Redis 3.2, Memcached, Supervisor
 
 ### System packages
 
