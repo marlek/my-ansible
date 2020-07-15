@@ -3,20 +3,23 @@
 - shell: hostname
   register: current_hostname
 
-- name: Add key for Mariadb
-  command: "apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db"
+- name: Add PGP key for MySQL
+  apt_key:
+    keyserver: "{{mysql.key_server}}"
+    id: "{{mysql.key_id}}"
 
-- name: Add ppa Repository for Mariadb
+- name: Add ppa Repository for MySQL
   apt_repository:
-    repo: "deb [arch=amd64,i386] http://www.ftp.saix.net/DB/mariadb/repo/{{ mysql.mariadb_version }}/debian wheezy main"
+    repo: "{{mysql.ppa}}"
     state: present
 
 - name: Update apt
   apt: update_cache=yes
 
 - name: mysql | Install MySQL Packages
-  apt: pkg={{ item }} state=latest
-  with_items: "{{mysql.packages}}"
+  apt:
+    pkg: "{{mysql.packages}}"
+    state: latest
   when: mysql.packages is defined
 
 - name: mysql | Update root password for all root accounts
