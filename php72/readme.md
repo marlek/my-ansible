@@ -11,7 +11,7 @@ Apache 2.4, MySQL 5.7, Redis 3.2, Memcached, Supervisor
 
 ### System packages
 
-curl, wget, python-software-properties, vim, git, htop, imagemagick
+curl, wget, vim, git, htop, imagemagick
 
 ### Apache
 
