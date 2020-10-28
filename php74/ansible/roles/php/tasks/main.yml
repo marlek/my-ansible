@@ -1,0 +1,31 @@
+---
+
+- name: php | Download ondrej's PPA key
+  get_url:
+    url: https://packages.sury.org/php/apt.gpg
+    dest: /etc/apt/trusted.gpg.d/php.gpg
+
+- name: php | Create '/etc/apt/sources.list.d/php.list' file
+  copy:
+    content: 'deb https://packages.sury.org/php/ stretch main'
+    dest: /etc/apt/sources.list.d/php.list
+    owner: root
+    mode: 0555
+
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install php
+  apt: pkg=php{{ php.version }} state=latest
+
+- name: Install PHP Packages
+  apt:
+    pkg: "{{php.packages}}"
+    state: latest
+  when: php.packages is defined
+
+- include: configure.yml
+
+- include: xdebug.yml
+
+- include: composer.yml

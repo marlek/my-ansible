@@ -2,6 +2,8 @@
 
 !.gitignore
 !readme.md
+!php74
+!php74/**
 !php73
 !php73/**
 !php72
@@ -10,6 +12,10 @@
 !php7/**
 !php56
 !php56/**
+
+/php74/.DS_Store
+/php74/.vagrant
+/php74/ansible/inventories/dev
 
 /php73/.DS_Store
 /php73/.vagrant

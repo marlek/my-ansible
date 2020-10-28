@@ -1,0 +1,5 @@
+---
+apache:
+  install: '1'
+  docroot: /var/www
+  servername: www.default.test

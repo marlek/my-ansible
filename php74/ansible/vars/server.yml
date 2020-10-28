@@ -1,0 +1,18 @@
+---
+server:
+  install: '1'
+  packages: [
+    vim,
+    git,
+    htop,
+    imagemagick,
+    build-essential,
+    curl,
+    wget,
+    ca-certificates,
+    apt-transport-https,
+    unzip,
+    python-apt
+  ]
+  timezone: UTC
+  locale: en_US.UTF-8

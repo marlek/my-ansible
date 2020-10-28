@@ -1,0 +1,18 @@
+---
+- name: Install Xdebug
+  apt: pkg=php-xdebug state=latest
+
+- name: Configure Xdebug in apache2 php.ini (1/7)
+  lineinfile: dest=/etc/php/{{php.version}}/apache2/php.ini line='; Xdebug configuration'
+- name: Configure Xdebug in apache2 php.ini (2/7)
+  lineinfile: dest=/etc/php/{{php.version}}/apache2/php.ini line='xdebug.remote_enable = 1'
+- name: Configure Xdebug in apache2 php.ini (3/7)
+  lineinfile: dest=/etc/php/{{php.version}}/apache2/php.ini line='xdebug.remote_connect_back=1'
+- name: Configure Xdebug in apache2 php.ini (4/7)
+  lineinfile: dest=/etc/php/{{php.version}}/apache2/php.ini line='xdebug.remote_port = 9000'
+- name: Configure Xdebug in apache2 php.ini (5/7)
+  lineinfile: dest=/etc/php/{{php.version}}/apache2/php.ini line='xdebug.scream=0'
+- name: Configure Xdebug in apache2 php.ini (6/7)
+  lineinfile: dest=/etc/php/{{php.version}}/apache2/php.ini line='xdebug.show_local_vars=1'
+- name: Configure Xdebug in apache2 php.ini (7/7)
+  lineinfile: dest=/etc/php/{{php.version}}/apache2/php.ini line='xdebug.idekey=PHPSTORM'
