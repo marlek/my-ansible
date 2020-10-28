@@ -6,6 +6,6 @@ _/ ____\  |   ____ |  | _______     | |  ______ |  |__ ______   \______  \  \___
  |__|  |____/\___  >__|_ \(____  /  | |  |   __/|___|  /   __/    /____/ /\ \_______ \
                  \/     \/     \/   |_|  |__|        \/|__|              \/         \/
 
-PHP: {{ php.version }} | MariaDB: {{ mysql.mariadb_version }} | Node: {{ node.node_version }}
+PHP: {{ php.version }} | MySQL: {{ mysql.version }} | Node: {{ node.node_version }}
 Apache 2.4 | Redis {{ redis.version }} | Memcached | Supervisor
 --------------------------------------------------------------------------------------
