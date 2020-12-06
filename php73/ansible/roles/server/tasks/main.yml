@@ -12,7 +12,7 @@
   template: src=timezone.tpl dest=/etc/timezone
 
 - name: More Configure the timezone
-  file: src=/usr/share/zoneinfo/{{server.timezone}} dest=/etc/localtime state=link force=yes backup=yes
+  file: src=/usr/share/zoneinfo/{{server.timezone}} dest=/etc/localtime state=link force=yes
 
 - name: Set default system language pack
   shell: locale-gen {{server.locale}}
