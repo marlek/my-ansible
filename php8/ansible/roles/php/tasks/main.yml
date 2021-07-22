@@ -1,0 +1,21 @@
+---
+- name: Add PHP repository
+  shell: add-apt-repository -y {{php.ppa}}
+  become: true
+
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install php
+  apt: pkg=php{{ php.version }} state=latest
+
+- name: Install PHP Packages
+  apt:
+    pkg: "{{php.packages}}"
+    state: latest
+
+- include: configure.yml
+
+- include: xdebug.yml
+
+- include: composer.yml

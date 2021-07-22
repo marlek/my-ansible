@@ -1,0 +1,17 @@
+---
+- name: "Checkout nvm repository"
+  git: repo="https://github.com/creationix/nvm.git" dest="/home/vagrant/.nvm" accept_hostkey="yes" update="yes"
+  become: false
+
+- name: "Installing nodejs"
+  shell: source /home/vagrant/.nvm/nvm.sh && nvm install {{ node.version }}
+         executable="/bin/bash"
+  become: false
+
+- name: "Activating default version"
+  shell: source /home/vagrant/.nvm/nvm.sh && nvm alias default {{ node.version }}
+         executable="/bin/bash"
+  become: false
+
+- name: "Ensure nvm is loaded during login"
+  lineinfile: dest="/home/vagrant/.profile" line="source /home/vagrant/.nvm/nvm.sh" state="present"

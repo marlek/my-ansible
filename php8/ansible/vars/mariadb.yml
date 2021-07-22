@@ -1,0 +1,10 @@
+---
+mariadb:
+  root_password: 'root'
+  version: '10.4'
+  socket_path: '/var/run/mysqld/mysqld.sock'
+  packages: [
+    mariadb-server-10.4,
+    mariadb-client-10.4,
+    python3-mysqldb
+  ]

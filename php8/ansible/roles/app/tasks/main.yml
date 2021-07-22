@@ -1,0 +1,50 @@
+---
+- name: "Fetching dotfiles"
+  get_url:
+    url: https://raw.github.com/marlek/dotfiles/master/bash/.bash_custom
+    dest: /home/vagrant/.bash_custom
+  become: false
+
+- name: "Load dotfiles during login"
+  lineinfile:
+    dest: /home/vagrant/.profile
+    line: source ~/.bash_custom
+    state: present
+
+- name: Check if bash helper scripts exist
+  stat:
+    path: /vagrant/Bitbucket/fl-bash-helpers
+  register: bash_helpers_exist
+
+- name: "Load bash helper scripts during login"
+  lineinfile:
+    dest: /home/vagrant/.profile
+    line: export PATH=$PATH:/vagrant/Bitbucket/fl-bash-helpers
+    state: present
+
+- name: "Set PHPUnit alias"
+  lineinfile:
+    dest: /home/vagrant/.profile
+    line: alias phpunit=./vendor/bin/phpunit
+    state: present
+
+- name: "Remove /var/www"
+  file:
+    path: /var/www
+    state: absent
+    force: yes
+
+- name: "Link /var/www to /vagrant/www"
+  file:
+    src: /vagrant/www
+    dest: /var/www
+    state: link
+    force: yes
+
+- name: "Update motd"
+  template:
+    src: motd.tpl
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0644

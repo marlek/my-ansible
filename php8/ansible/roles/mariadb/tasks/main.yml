@@ -1,0 +1,30 @@
+---
+- name: Add key for Mariadb
+  command: "apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'"
+
+- name: Add ppa Repository for Mariadb
+  apt_repository:
+    repo: "deb [arch=amd64,arm64,ppc64el] http://nyc2.mirrors.digitalocean.com/mariadb/repo/{{mariadb.version}}/ubuntu focal main"
+    state: present
+
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install MariaDB Packages
+  apt:
+    pkg: "{{mariadb.packages}}"
+    state: latest
+  when: mariadb.packages is defined
+
+# This can be run only for the first provision.
+# After mysql user is set, we can't run this and that's why we have ignore_errors
+- name: Set root user password
+  mysql_user:
+    name: root
+    host_all: yes
+    password: '{{ mariadb.root_password }}'
+    check_implicit_admin: yes
+    priv: "*.*:ALL,GRANT"
+    login_unix_socket: '{{ mariadb.socket_path }}'
+    state: present
+  ignore_errors: yes
