@@ -15,3 +15,9 @@
 
 - name: "Ensure nvm is loaded during login"
   lineinfile: dest="/home/vagrant/.profile" line="source /home/vagrant/.nvm/nvm.sh" state="present"
+
+- name: "Installing global npm packages"
+  shell: source /home/vagrant/.nvm/nvm.sh && nvm use {{ node.version }} && npm install -g '{{ item }}'
+         executable="/bin/bash"
+  with_items: "{{node.global_packages}}"
+  become: false

@@ -1,3 +1,4 @@
 ---
 node:
     version: '14'
+    global_packages: ['pm2']
