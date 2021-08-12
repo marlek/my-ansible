@@ -4,7 +4,7 @@ Check out readme.md in the root of the repository for prerequisites and installa
 
 ## Installed software
 
-**Debian 8 (Jessie)**
+**Debian 9 (Stratch)**
 
 ### Services
 Apache 2.4, MySQL 5.7, Redis 3.2, Memcached, Supervisor
