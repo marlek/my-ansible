@@ -11,7 +11,8 @@ server:
     wget,
     ca-certificates,
     apt-transport-https,
-    unzip
+    unzip,
+    dirmngr
   ]
   timezone: UTC
   locale: en_US.UTF-8
